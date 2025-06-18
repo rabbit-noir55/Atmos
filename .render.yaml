@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: atmos-api
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn config.wsgi
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: config.settings
